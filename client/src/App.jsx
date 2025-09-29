@@ -6,7 +6,7 @@ function App() {
     { id: 1, name: "Ali" },
     { id: 2, name: "Sara" },
     { id: 3, name: "Bilal" },
-  ]);
+  ])
 
   return (
     <div>
