@@ -26,3 +26,4 @@ mongoose.connect(process.env.MONGO_URI)
   console.error('DB connect error', err);
 });
 
+export default app;
