@@ -6,11 +6,12 @@ export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
-  // Jab app load ho to check kare user pehle se login to nahi
   useEffect(() => {
     const token = localStorage.getItem('token');
+    const backURL = import.meta.env.VITE_BACKEND_URL; // URL yahan set kiya
+    
     if (token) {
-      axios.get('http://localhost:5000/api/protected/me', {
+      axios.get(`${backURL}/api/protected/me`, {
         headers: { Authorization: `Bearer ${token}` }
       })
       .then(res => setUser(res.data))
@@ -19,7 +20,8 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const login = async (email, password) => {
-    const res = await axios.post('http://localhost:5000/api/auth/login', { email, password });
+    const backURL = import.meta.env.VITE_BACKEND_URL; // URL yahan set kiya
+    const res = await axios.post(`${backURL}/api/auth/login`, { email, password });
     localStorage.setItem('token', res.data.token);
     setUser(res.data.user);
   };
