@@ -26,7 +26,6 @@ app.get('/', (req, res) => {
   res.send('Mera Backend Vercel Par Successfully Chal Raha Hai! 🚀');
 });
 
-// 👇 authLimiter ko sirf auth routes (login/register) par apply kiya hai 👇
 app.use('/api/auth', authLimiter, authRoutes);
 app.use('/api/protected', protectedRoutes);
 

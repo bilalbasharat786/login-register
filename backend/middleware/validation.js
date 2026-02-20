@@ -1,6 +1,5 @@
 import { body, validationResult } from 'express-validator';
 
-// Rules for Registration
 export const registerValidation = [
   body('name')
     .trim()
@@ -20,7 +19,6 @@ export const registerValidation = [
 
 ];
 
-// Rules for Login
 export const loginValidation = [
   body('email')
     .trim()
