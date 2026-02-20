@@ -38,7 +38,11 @@ export const loginUser = async (req, res) => {
       process.env.JWT_SECRET,
       { expiresIn: '1h' }
     );
-    res.json({ token, user: { id: user._id, name: user.name, email: user.email }, message: 'Login successful' });
+res.json({ 
+  token, 
+  user: { id: user._id, name: user.name, email: user.email, role: user.role },
+  message: 'Login successful' 
+});
   } catch (error) {
     res.status(500).json({ message: 'Server error', error });
   }
