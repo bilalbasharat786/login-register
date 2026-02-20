@@ -8,7 +8,7 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    const backURL = import.meta.env.VITE_BACKEND_URL; // URL yahan set kiya
+    const backURL = import.meta.env.VITE_BACKEND_URL;
     
     if (token) {
       axios.get(`${backURL}/api/protected/me`, {
@@ -20,7 +20,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const login = async (email, password) => {
-    const backURL = import.meta.env.VITE_BACKEND_URL; // URL yahan set kiya
+    const backURL = import.meta.env.VITE_BACKEND_URL;
     const res = await axios.post(`${backURL}/api/auth/login`, { email, password });
     localStorage.setItem('token', res.data.token);
     setUser(res.data.user);

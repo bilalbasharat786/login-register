@@ -11,7 +11,7 @@ export default function Register() {
     const handleSubmit = async (e) => {
   e.preventDefault();
   try {
-    const backURL = import.meta.env.VITE_BACKEND_URL; // Ye line add ki
+    const backURL = import.meta.env.VITE_BACKEND_URL;
     const res = await axios.post(`${backURL}/api/auth/register`, { 
       name, email, password 
     });
@@ -32,7 +32,7 @@ export default function Register() {
             <label className="block text-sm font-medium text-gray-700">Full Name</label>
             <input 
               type="text" 
-              className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="John Doe" 
               value={name} 
               onChange={(e) => setName(e.target.value)} 
@@ -44,7 +44,7 @@ export default function Register() {
             <label className="block text-sm font-medium text-gray-700">Email Address</label>
             <input 
               type="email" 
-              className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="you@example.com" 
               value={email} 
               onChange={(e) => setEmail(e.target.value)} 
@@ -56,7 +56,7 @@ export default function Register() {
             <label className="block text-sm font-medium text-gray-700">Password</label>
             <input 
               type="password" 
-              className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="Create a strong password" 
               value={password} 
               onChange={(e) => setPassword(e.target.value)} 
@@ -66,14 +66,14 @@ export default function Register() {
           
           <button 
             type="submit" 
-            className="w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700 transition duration-300 font-semibold"
+            className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition duration-300 font-semibold"
           >
             Register
           </button>
         </form>
 
         <p className="mt-4 text-center text-sm text-gray-600">
-          Already have an account? <Link to="/login" className="text-green-600 hover:underline">Login here</Link>
+          Already have an account? <Link to="/login" className="text-blue-600 hover:underline">Login here</Link>
         </p>
       </div>
     </div>
