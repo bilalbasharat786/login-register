@@ -8,15 +8,15 @@ export default function Register() {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-    const handleSubmit = async (e) => {
-  e.preventDefault();
-  try {
-    const backURL = import.meta.env.VITE_BACKEND_URL;
-    const res = await axios.post(`${backURL}/api/auth/register`, { 
-      name, email, password 
-    });
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const backURL = import.meta.env.VITE_BACKEND_URL;
+      const res = await axios.post(`${backURL}/api/auth/register`, {
+        name, email, password
+      });
       alert(res.data.message || 'Registration Successful! Please Login.');
-      navigate('/login'); 
+      navigate('/login');
     } catch (err) {
       alert(err.response?.data?.message || 'Registration Failed');
     }
@@ -26,46 +26,46 @@ export default function Register() {
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">Create Account</h2>
-        
+
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-gray-700">Full Name</label>
-            <input 
-              type="text" 
+            <input
+              type="text"
               className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="John Doe" 
-              value={name} 
-              onChange={(e) => setName(e.target.value)} 
-              required 
+              placeholder="John Doe"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
             />
           </div>
 
           <div>
             <label className="block text-sm font-medium text-gray-700">Email Address</label>
-            <input 
-              type="email" 
+            <input
+              type="email"
               className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="you@example.com" 
-              value={email} 
-              onChange={(e) => setEmail(e.target.value)} 
-              required 
+              placeholder="you@example.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
             />
           </div>
-          
+
           <div>
             <label className="block text-sm font-medium text-gray-700">Password</label>
-            <input 
-              type="password" 
+            <input
+              type="password"
               className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="Create a strong password" 
-              value={password} 
-              onChange={(e) => setPassword(e.target.value)} 
-              required 
+              placeholder="Create a strong password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
             />
           </div>
-          
-          <button 
-            type="submit" 
+
+          <button
+            type="submit"
             className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition duration-300 font-semibold"
           >
             Register

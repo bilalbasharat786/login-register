@@ -9,13 +9,13 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const token = localStorage.getItem('token');
     const backURL = import.meta.env.VITE_BACKEND_URL;
-    
+
     if (token) {
       axios.get(`${backURL}/api/protected/me`, {
         headers: { Authorization: `Bearer ${token}` }
       })
-      .then(res => setUser(res.data))
-      .catch(() => localStorage.removeItem('token'));
+        .then(res => setUser(res.data))
+        .catch(() => localStorage.removeItem('token'));
     }
   }, []);
 

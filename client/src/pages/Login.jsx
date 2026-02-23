@@ -12,7 +12,7 @@ export default function Login() {
     e.preventDefault();
     try {
       await login(email, password);
-      navigate('/dashboard'); 
+      navigate('/dashboard');
     } catch (err) {
       alert(err.response?.data?.message || 'Login Failed');
     }
@@ -22,34 +22,34 @@ export default function Login() {
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">Login</h2>
-        
+
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-gray-700">Email</label>
-            <input 
-              type="email" 
+            <input
+              type="email"
               className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="Enter your email" 
-              value={email} 
-              onChange={(e) => setEmail(e.target.value)} 
-              required 
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
             />
           </div>
-          
+
           <div>
             <label className="block text-sm font-medium text-gray-700">Password</label>
-            <input 
-              type="password" 
+            <input
+              type="password"
               className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="Enter your password" 
-              value={password} 
-              onChange={(e) => setPassword(e.target.value)} 
-              required 
+              placeholder="Enter your password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
             />
           </div>
-          
-          <button 
-            type="submit" 
+
+          <button
+            type="submit"
             className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition duration-300 font-semibold"
           >
             Login
