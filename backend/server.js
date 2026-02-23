@@ -26,7 +26,7 @@ const authLimiter = rateLimit({
 });
 
 app.get("/", (req, res) => {
-  res.send("Mera Backend Vercel Par Successfully Chal Raha Hai! 🚀");
+  res.send("Mera Backend Vercel Par Successfully Chal Raha Hai! ");
 });
 
 app.use("/api/auth", authLimiter, authRoutes);
